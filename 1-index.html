@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🏥 Hospital Management System</h1>
+  <nav>
+    <button data-tab="dashboard" class="active">Dashboard</button>
+    <button data-tab="patients">Patients</button>
+    <button data-tab="doctors">Doctors</button>
+    <button data-tab="appointments">Appointments</button>
+  </nav>
+</header>
+<main>
+  <section id="dashboard" class="tab active">
+    <div class="cards">
+      <div class="card"><span id="countPatients">0</span><p>Patients</p></div>
+      <div class="card"><span id="countDoctors">0</span><p>Doctors</p></div>
+      <div class="card"><span id="countAppts">0</span><p>Appointments</p></div>
+      <div class="card"><span id="countToday">0</span><p>Today</p></div>
+    </div>
+    <h2>Upcoming appointments</h2>
+    <ul id="upcoming"></ul>
+  </section>
+
+  <section id="patients" class="tab">
+    <h2>Patients</h2>
+    <form id="patientForm">
+      <input id="pName" placeholder="Full name" required>
+      <input id="pAge" type="number" min="0" max="120" placeholder="Age" required>
+      <select id="pGender"><option>Male</option><option>Female</option></select>
+      <input id="pPhone" placeholder="Phone" required>
+      <input id="pDisease" placeholder="Diagnosis / complaint" required>
+      <button type="submit">Add patient</button>
+    </form>
+    <input id="pSearch" class="search" placeholder="Search patients...">
+    <table><thead><tr><th>Name</th><th>Age</th><th>Gender</th><th>Phone</th><th>Diagnosis</th><th></th></tr></thead><tbody id="patientRows"></tbody></table>
+  </section>
+
+  <section id="doctors" class="tab">
+    <h2>Doctors</h2>
+    <form id="doctorForm">
+      <input id="dName" placeholder="Doctor name" required>
+      <input id="dSpec" placeholder="Specialty" required>
+      <input id="dPhone" placeholder="Phone" required>
+      <button type="submit">Add doctor</button>
+    </form>
+    <table><thead><tr><th>Name</th><th>Specialty</th><th>Phone</th><th></th></tr></thead><tbody id="doctorRows"></tbody></table>
+  </section>
+
+  <section id="appointments" class="tab">
+    <h2>Appointments</h2>
+    <form id="apptForm">
+      <select id="aPatient" required></select>
+      <select id="aDoctor" required></select>
+      <input id="aDate" type="date" required>
+      <input id="aTime" type="time" required>
+      <button type="submit">Book</button>
+    </form>
+    <p id="apptMsg" class="msg"></p>
+    <table><thead><tr><th>Patient</th><th>Doctor</th><th>Date</th><th>Time</th><th>Status</th><th></th></tr></thead><tbody id="apptRows"></tbody></table>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
